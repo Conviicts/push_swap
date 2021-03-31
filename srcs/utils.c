@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 00:51:47 by jode-vri          #+#    #+#             */
-/*   Updated: 2021/03/29 10:16:37 by jode-vri         ###   ########.fr       */
+/*   Updated: 2021/03/31 15:41:00 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,15 @@ int			init_ps(t_ps *ps, char **av)
 	while (av[++i])
 	{
 		if (!is_valid_param(av[i]))
+		{
+			printf("b\n");
 			return (0);
+		}
 		if (is_in_double(av))
+		{
+			printf("c\n");
 			return (0);
+		}
 		nb = (int)ft_atoi(av[i]);
 		ft_add_bottom(&ps->a, nb);
 		ps->size++;
