@@ -6,20 +6,23 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 00:30:47 by jode-vri          #+#    #+#             */
-/*   Updated: 2021/03/31 16:22:19 by jode-vri         ###   ########.fr       */
+/*   Updated: 2021/03/31 17:15:25 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	get_moves_start(t_ps *ps)
+int	get_moves_start(t_ps *ps, char c)
 {
 	t_stack	*tmp;
 	t_stack	*first;
 	int		moves;
 
 	first = NULL;
-	tmp = ps->a;
+	if (c == 'a')
+		tmp = ps->a;
+	else
+		tmp = ps->b;
 	moves = 0;
 	while (tmp)
 	{
@@ -34,7 +37,7 @@ int	get_moves_start(t_ps *ps)
 	return (moves);
 }
 
-int	get_moves_end(t_ps *ps)
+int	get_moves_end(t_ps *ps, char c)
 {
 	t_stack	*tmp;
 	t_stack	*last;
@@ -42,7 +45,10 @@ int	get_moves_end(t_ps *ps)
 
 	last = NULL;
 	moves = 0;
-	tmp = get_last(ps->a);
+	if (c == 'a')
+		tmp = get_last(ps->a);
+	else
+		tmp = get_last(ps->b);
 	while (tmp)
 	{
 		moves++;
@@ -56,15 +62,45 @@ int	get_moves_end(t_ps *ps)
 	return (moves);
 }
 
+int		get_moves_minus(t_ps *ps)
+{
+	int moves;
+	int minus;
+	t_stack	*tmp;
+
+	tmp = ps->a;
+	moves = 0;
+	minus = ps->a->nb;
+	while (tmp)
+	{
+		if (ps->a->nb < minus)
+		{
+			minus = ps->a->nb;
+			moves++;
+		}
+		tmp = tmp->next;
+	}
+	return (moves);
+}
+
+void	truc2(t_ps *ps)
+{
+	int moves;
+	
+	moves = get_moves_minus(ps);
+	printf("%d\n", moves);
+	pb(ps);
+	print_list(ps->b, 'b');
+}
+
 void	insertion_algo(t_ps *ps)
 {
 	int first;
 	int second;
 	
-	first = get_moves_start(ps);
-	second = get_moves_end(ps);
+	first = get_moves_start(ps, 'a');
+	second = get_moves_end(ps, 'a');
 
-	printf("%d\n", ps->size);
 	if (first < second)
 	{
 		if (first <= ps->size / 2)
@@ -92,7 +128,7 @@ void	insertion_algo(t_ps *ps)
 				ra(ps);
 		}
 	}
-	print_list(ps->a, 'a');
+	truc2(ps);
 }
 
 void	start(t_ps *ps)
