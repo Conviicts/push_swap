@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 00:30:47 by jode-vri          #+#    #+#             */
-/*   Updated: 2021/03/31 14:22:54 by jode-vri         ###   ########.fr       */
+/*   Updated: 2021/03/31 15:02:54 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,5 @@ int		main(int ac, char **av)
 	ps.draw = 1;
 	if (!check_is_sorted(&ps))
 		start(&ps);
-	print_list(ps.a, 'a');
+	//print_list(ps.a, 'a');
 }
