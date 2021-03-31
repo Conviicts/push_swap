@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 00:31:15 by jode-vri          #+#    #+#             */
-/*   Updated: 2021/03/31 14:24:39 by jode-vri         ###   ########.fr       */
+/*   Updated: 2021/03/31 14:34:02 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	rrb(t_ps *ps, t_stack *stack);
 void	sa(t_ps *ps, t_stack *stack);
 void	sb(t_ps *ps, t_stack *stack);
 void	ra(t_ps *ps);
+void	rb(t_ps *ps);
 void	pb(t_ps *ps);
 void	pa(t_ps *ps);
 
