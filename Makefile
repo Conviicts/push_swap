@@ -16,7 +16,7 @@ SRCS		=	srcs/main.c								\
 				srcs/operations/reverse.c				\
 				srcs/operations/push.c					\
 
-SRCS2		=	srcs/checker/main.c						\
+#SRCS2		=	srcs/checker/main.c						\
 				srcs/utils.c							\
 				srcs/list.c								\
 				srcs/less_than_five.c					\
@@ -31,14 +31,14 @@ SRCS2		=	srcs/checker/main.c						\
 
 OBJS		=	$(SRCS:.c=.o)
 
-OBJS2		=	$(SRCS2:.c=.o)
+#OBJS2		=	$(SRCS2:.c=.o)
 
 all			:	$(NAME)
 
 $(NAME)		:	$(OBJS) $(OBJS2) $(HEADER)
 			make -C $(LIBFT)
 			$(CC) -o $(NAME) $(FLAGS) $(OBJS) ./libft/libft.a
-			$(CC) -o $(NAME2) $(FLAGS) $(OBJS2) ./libft/libft.a
+			#$(CC) -o $(NAME2) $(FLAGS) $(OBJS2) ./libft/libft.a
 
 clean		:
 			rm -rf $(OBJS)

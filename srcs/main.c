@@ -6,7 +6,7 @@
 /*   By: jode-vri <jode-vri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/26 00:30:47 by jode-vri          #+#    #+#             */
-/*   Updated: 2021/03/31 17:15:25 by jode-vri         ###   ########.fr       */
+/*   Updated: 2021/03/31 22:08:07 by jode-vri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,13 @@ int		get_moves_minus(t_ps *ps)
 
 void	truc2(t_ps *ps)
 {
-	int moves;
+	int first;
+	int second;
 	
-	moves = get_moves_minus(ps);
-	printf("%d\n", moves);
+	first = get_moves_start(ps, 'b');
+	second = get_moves_end(ps, 'b');
+	
+	printf("moves %d", first);
 	pb(ps);
 	print_list(ps->b, 'b');
 }
@@ -155,10 +158,7 @@ int		main(int ac, char **av)
 	if (ac < 2)
 		return (1);
 	if (!init_ps(&ps, av))
-	{
-		printf("a\n");
 		return (1);
-	}
 	ps.draw = 1;
 	if (!check_is_sorted(&ps))
 		start(&ps);
